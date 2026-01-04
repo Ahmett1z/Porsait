@@ -8,7 +8,8 @@ function generateId() {
 
 // Load notes on start
 function init() {
-  notes = loadNotes();
+  notes = notes = window.loadNotes();
+  
   render();
 }
 
@@ -29,7 +30,7 @@ function createNewNote() {
 
   notes.unshift(newNote);
   activeNoteId = newNote.id;
-  saveNotes(notes);
+  window.saveNotes(notes);
   render();
   fillEditor(newNote);
 }
@@ -89,3 +90,4 @@ UI.searchInput.addEventListener("input", render);
 
 // Start app
 init();
+
