@@ -1,62 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Porsait</title>
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Porsait 1.1</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <div id="app">
-    
     <!-- Sidebar -->
     <aside id="sidebar">
       <h1>Porsait</h1>
-
-      <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Search notes..."
-      />
-
-      <ul id="noteList">
-        <!-- Notes will be listed here -->
-      </ul>
-
+      <input type="text" id="searchInput" placeholder="Search notes...">
+      <ul id="noteList"></ul>
       <button id="newNoteBtn">New Note</button>
     </aside>
 
     <!-- Main Content -->
     <main id="main">
-      <input 
-        type="text" 
-        id="noteTitle" 
-        placeholder="Note title"
-      />
-
-      <textarea 
-        id="noteContent" 
-        placeholder="Write your note here..."
-      ></textarea>
-
-      <input 
-        type="text" 
-        id="noteTags" 
-        placeholder="Tags (comma separated)"
-      />
-
+      <input type="text" id="noteTitle" placeholder="Note title">
+      <textarea id="noteContent" placeholder="Write your note here..."></textarea>
+      <input type="text" id="noteTags" placeholder="Tags (comma separated)">
       <div id="actions">
         <button id="saveNoteBtn">Save</button>
         <button id="deleteNoteBtn">Delete</button>
+        <button id="exportBtn">Export</button>
+        <input type="file" id="importInput" style="display:none;">
+        <button id="importBtn">Import</button>
       </div>
     </main>
-
   </div>
 
-  <script src="storage.js"></script>
-  <script src="ui.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
