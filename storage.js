@@ -1,5 +1,4 @@
-// storage.js
-// Notları tarayıcıya kaydeder ve geri yükler
+console.log("storage.js çalıştı");
 
 function loadNotes() {
   const data = localStorage.getItem("porsait_notes");
