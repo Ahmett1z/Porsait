@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Heavy CSS Animation</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at top, #0a0a0a, #000);
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* ARKA PLAN PARÇACIKLARI */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particles span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: cyan;
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* MERKEZ KÜRE */
+.core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, #00ffff, #0066ff, transparent);
+    filter: blur(1px);
+    animation: pulse 3s infinite ease-in-out;
+    box-shadow:
+        0 0 40px cyan,
+        0 0 80px blue,
+        inset 0 0 40px cyan;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* HALKALAR */
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 8s linear infinite;
+    filter: blur(0.5px);
+}
+
+.ring:nth-child(2) {
+    width: 450px;
+    height: 450px;
+    animation-duration: 12s;
+    border-color: rgba(0, 150, 255, 0.3);
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* IŞIK PATLAMASI */
+.flash {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,255,255,0.15), transparent 70%);
+    animation: flash 5s infinite;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* BAŞLIK */
+.title {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    color: cyan;
+    letter-spacing: 4px;
+    text-shadow:
+        0 0 10px cyan,
+        0 0 30px blue;
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-1px); }
+    80% { transform: translateX(1px); }
+    100% { transform: translateX(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="particles">
+    <!-- 40 parçacık -->
+    <span style="left:5%; animation-delay:0s"></span>
+    <span style="left:10%; animation-delay:2s"></span>
+    <span style="left:20%; animation-delay:4s"></span>
+    <span style="left:30%; animation-delay:1s"></span>
+    <span style="left:40%; animation-delay:3s"></span>
+    <span style="left:50%; animation-delay:5s"></span>
+    <span style="left:60%; animation-delay:2s"></span>
+    <span style="left:70%; animation-delay:4s"></span>
+    <span style="left:80%; animation-delay:1s"></span>
+    <span style="left:90%; animation-delay:3s"></span>
+</div>
+
+<div class="flash"></div>
+<div class="ring"></div>
+<div class="ring"></div>
+<div class="core"></div>
+
+<div class="title">CSS CORE ONLINE</div>
+
+</body>
+</html>
